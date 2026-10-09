@@ -619,3 +619,21 @@ body[data-time="night"] .hero { background: linear-gradient(#e9e3d2, var(--canva
 .lang-toggle[aria-pressed="false"] span:first-child, .lang-toggle[aria-pressed="true"] span:last-child { background: var(--ink); color: var(--canvas); }
 .nav { gap: 16px; }
 .nav nav { margin-left: auto; }
+
+/* ============ link to Fujimoto Archive ============ */
+.archive-cta {
+  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4px 24px; margin: 0 0 56px;
+  padding: 24px 28px; border-radius: 12px; text-decoration: none; color: var(--on-dark);
+  background: var(--dark-2); border: 1px solid rgba(243, 238, 223, .12);
+  transition: border-color .3s, transform .35s var(--ease), background-color .3s;
+}
+.archive-cta:hover { border-color: var(--primary); transform: translateY(-3px); background: #263530; }
+.archive-kicker { grid-column: 1; font: 500 12px/1.4 var(--f-body); letter-spacing: .16em; text-transform: uppercase; color: var(--primary); }
+.archive-title { grid-column: 1; font: 500 clamp(20px, 2.4vw, 28px)/1.25 var(--f-display); }
+.archive-go { grid-column: 2; grid-row: 1 / span 2; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: var(--primary); color: var(--ink); font-size: 22px; transition: transform .35s var(--ease); }
+.archive-cta:hover .archive-go { transform: rotate(45deg); }
+.footer-end { display: grid; gap: 6px; justify-items: end; text-align: right; }
+.footer-link { font-size: 13px; }
+.footer-link a { color: var(--on-dark); text-underline-offset: 3px; }
+.footer-link a:hover { color: var(--primary); }
+@media (max-width: 800px) { .footer-end { justify-items: start; text-align: left; } }

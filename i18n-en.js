@@ -170,5 +170,7 @@ window.LB_EN = {
  "Randoseru merah, langit musim panas Akita.": "A red randoseru under Akita’s summer sky.",
  "Key visual: Fujino dan Kyomoto menggarap naskah bersama.": "Key visual: Fujino and Kyomoto working on a manuscript together.",
  "Berdesakan di bawah salju, pipi merah, mimpi yang sama.": "Huddled together in the snow, red cheeks, the same dream.",
- "Perjalanan pulang, langit Akita berwarna merah muda.": "The ride home, Akita’s sky turned pink."
+ "Perjalanan pulang, langit Akita berwarna merah muda.": "The ride home, Akita’s sky turned pink.",
+ "Jelajahi semua karya Fujimoto di rak perpustakaan malam": "Explore every Fujimoto work on the night-library shelf",
+ "Bagian dari <a href=\"https://dans-vsa.github.io/fujimoto-archive/\" target=\"_blank\" rel=\"noopener\">Fujimoto Archive ↗</a>": "Part of <a href=\"https://dans-vsa.github.io/fujimoto-archive/\" target=\"_blank\" rel=\"noopener\">Fujimoto Archive ↗</a>"
 };
