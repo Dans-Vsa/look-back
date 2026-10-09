@@ -322,7 +322,7 @@
       autoRunning = true; art.classList.add("auto"); last = null;
       const t0 = performance.now(), n = pts.length - 1;
       const tick = (now) => {
-        const t = Math.min(1, (now - t0) / dur), f = t * n, i = Math.min(n - 1, Math.floor(f)), k = f - i;
+        const t = Math.min(1, Math.max(0, now - t0) / dur), f = t * n, i = Math.min(n - 1, Math.floor(f)), k = f - i;
         const x = pts[i][0] + (pts[i + 1][0] - pts[i][0]) * k, y = pts[i][1] + (pts[i + 1][1] - pts[i][1]) * k;
         stroke(x, y, r); movePencil(x, y);
         if (t < 1) requestAnimationFrame(tick);
@@ -481,7 +481,7 @@
       const t0 = performance.now();
       const tick = now => {
         if (my !== s.token) return;
-        const t = now - t0;
+        const t = Math.max(0, now - t0); // rAF time can precede t0
         if (t < T1) {
           // pencil phase: quick scribbles, roughly top to bottom
           const want = Math.floor(t / T1 * N);
@@ -792,7 +792,7 @@
       if (!es[0].isIntersecting) return; io.disconnect();
       const t0 = performance.now();
       const tick = now => {
-        const t = (now - t0) / 1600; if (t > 1 || range.dataset.touched) return set(range.value);
+        const t = Math.max(0, now - t0) / 1600; if (t > 1 || range.dataset.touched) return set(range.value);
         const v = 50 + Math.sin(t * Math.PI * 2) * 22; set(v.toFixed(1)); requestAnimationFrame(tick);
       };
       setTimeout(() => requestAnimationFrame(tick), 500);
@@ -863,7 +863,7 @@
     I18N.on(() => { txt.textContent = T(data[cur$].t); });
     const countTo = (to) => {
       const from = cur, t0 = performance.now(); cur = to;
-      const tick = now => { const t = Math.min(1, (now - t0) / 700); count.textContent = Math.round(from + (to - from) * t); if (t < 1) requestAnimationFrame(tick); };
+      const tick = now => { const t = Math.min(1, Math.max(0, now - t0) / 700); count.textContent = Math.round(from + (to - from) * t); if (t < 1) requestAnimationFrame(tick); };
       requestAnimationFrame(tick);
       stack.replaceChildren();
       const n = Math.ceil(to / 2.5);
