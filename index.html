@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ルックバック · Look Back — Sebuah Tribut untuk Tatsuki Fujimoto</title>
+<meta name="description" content="Tribut interaktif untuk Look Back karya Tatsuki Fujimoto: kamar Fujino, jalan sawah, ruang kelas, pintu Kyomoto, dan empat musim desa di Akita.">
+<meta name="theme-color" content="#f6f1e3">
+<meta property="og:title" content="ルックバック · Look Back — Tribut untuk Tatsuki Fujimoto">
+<meta property="og:description" content="Warnai kamar Fujino, berjalan di bawah hujan, dan menoleh ke belakang.">
+<meta property="og:image" content="assets/room-color.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23f6f1e3'/%3E%3Cpath d='M8 7l-2 18M14 8l-1 4M18 8l-1 4M21 9h6l-4 15' stroke='%235fb3d6' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Shippori+Mincho:wght@500&family=Caveat:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap&text=%E3%83%AB%E3%83%83%E3%82%AF%E3%83%90%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E8%97%A4%E6%9C%AC%E3%82%BF%E3%83%84%E3%82%AD%E9%83%A8%E5%B1%8B%E9%81%93%E6%95%99%E5%AE%A4%E6%89%89%E5%AD%A3%E7%AF%80%E4%BD%9C%E8%80%85%E5%BE%8C%E3%82%8D%E9%9B%A8%E4%BA%AC%E9%87%8E%E7%B5%82%E4%BA%BA%E7%89%A9%E3%83%A7%E3%82%A6%E5%A0%B4%E9%9D%A2">
+<link rel="preload" as="image" href="assets/room-sketch.webp">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- shared SVG defs -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#1f2a22" stroke-width="1" opacity=".55"/></pattern>
+  <pattern id="hatch2" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(-30)"><line x1="0" y1="0" x2="0" y2="4" stroke="#1f2a22" stroke-width=".8" opacity=".45"/></pattern>
+</svg>
+
+<div class="progress" aria-hidden="true"><span></span></div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#kamar" aria-label="Look Back — kembali ke atas">
+    <span class="brand-jp" lang="ja">ルックバック</span><span class="brand-en">Look Back</span>
+  </a>
+  <nav aria-label="Bab">
+    <ol class="nav-links">
+      <li><a href="#kamar"><b>01</b> Kamar</a></li>
+      <li><a href="#tokoh"><b>02</b> Tokoh</a></li>
+      <li><a href="#jalan"><b>03</b> Jalan</a></li>
+      <li><a href="#kelas"><b>04</b> Kelas</a></li>
+      <li><a href="#pintu"><b>05</b> Pintu</a></li>
+      <li><a href="#musim"><b>06</b> Musim</a></li>
+      <li><a href="#galeri"><b>07</b> Galeri</a></li>
+      <li><a href="#fujimoto"><b>08</b> Fujimoto</a></li>
+    </ol>
+  </nav>
+  <button class="lang-toggle" id="langToggle" type="button" aria-label="Ganti bahasa / Switch language" aria-pressed="false"><span>ID</span><span>EN</span></button>
+</header>
+
+<main>
+
+<!-- 01 · KAMAR ============================================= -->
+<section class="hero" id="kamar" aria-labelledby="hero-title">
+  <div class="komorebi" aria-hidden="true"></div>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <p class="chapter-label reveal">01 — <span lang="ja">部屋</span> · Kamar Fujino</p>
+      <h1 id="hero-title">
+        <span class="kata" lang="ja" aria-hidden="true"><i>ル</i><i>ッ</i><i>ク</i><i>バ</i><i>ッ</i><i>ク</i></span>
+        <span class="title-en">Look Back</span>
+      </h1>
+      <p class="lede reveal">Seorang anak kelas empat menggambar di kamarnya, membelakangi dunia. Di ujung desa yang sama, seseorang menggambar lebih baik darinya. Dari situ semuanya dimulai.</p>
+      <div class="hero-actions reveal">
+        <button class="btn btn-primary" id="paintAll" type="button">Warnai kamarnya</button>
+        <a class="btn btn-ghost" href="#jalan">Masuk ke desa ↓</a>
+      </div>
+      <div class="paint-meter reveal" aria-live="polite">
+        <span class="meter-track"><span class="meter-fill" id="meterFill"></span></span>
+        <span class="meter-text" id="meterText">Gerakkan kursor di atas sketsa untuk mewarnai</span>
+      </div>
+    </div>
+
+    <figure class="sheet reveal" id="sheet">
+      <span class="tape tape-l" aria-hidden="true"></span><span class="tape tape-r" aria-hidden="true"></span>
+      <div class="sheet-art" id="sheetArt">
+        <img class="sheet-sketch" src="assets/room-sketch.webp" width="764" height="1200" alt="Fujino menggambar di mejanya, dilihat dari belakang. Sampul manga Look Back.">
+        <canvas class="sheet-color" id="paintCanvas" width="764" height="1200" aria-hidden="true"></canvas>
+        <div class="lamp-glow" aria-hidden="true"></div>
+        <span class="pencil" id="pencil" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M6 34l4-12L28 4l8 8-18 18z" fill="#f2c94c" stroke="#1f2a22" stroke-width="2" stroke-linejoin="round"/><path d="M6 34l4-12 8 8z" fill="#f6e3c0" stroke="#1f2a22" stroke-width="2" stroke-linejoin="round"/><path d="M6 34l1.6-5 3.4 3.4z" fill="#1f2a22"/><path d="M28 4l8 8-3 3-8-8z" fill="#e88a8a" stroke="#1f2a22" stroke-width="2"/></svg>
+        </span>
+      </div>
+      <figcaption class="hand">sampul <span lang="ja">ルックバック</span> — © Tatsuki Fujimoto / Shueisha</figcaption>
+    </figure>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"><span></span></div>
+</section>
+
+<!-- 02 · TOKOH ============================================ -->
+<section class="band band-paper" id="tokoh" aria-labelledby="tokoh-title">
+  <div class="wrap">
+    <div class="tokoh-head">
+      <div>
+        <p class="chapter-label reveal">02 — <span lang="ja">人物</span> · Tokoh</p>
+        <h2 id="tokoh-title" class="reveal">Dua anak, dua cara menggambar dunia.</h2>
+      </div>
+      <div class="char-tabs reveal" role="tablist" aria-label="Pilih tokoh">
+        <button class="char-tab" role="tab" id="tab-fujino" aria-controls="panel-fujino" aria-selected="true"><span lang="ja">藤野</span>Fujino</button>
+        <button class="char-tab" role="tab" id="tab-kyomoto" aria-controls="panel-kyomoto" aria-selected="false" tabindex="-1"><span lang="ja">京本</span>Kyomoto</button>
+        <button class="char-tab" role="tab" id="tab-duo" aria-controls="panel-duo" aria-selected="false" tabindex="-1"><span lang="ja">藤野キョウ</span>Berdua</button>
+      </div>
+    </div>
+
+    <!-- Fujino -->
+    <div class="char-panel" role="tabpanel" id="panel-fujino" aria-labelledby="tab-fujino">
+      <div class="char-sheet reveal">
+        <p class="sheet-tag"><span lang="ja">設定資料</span> · No.01</p>
+        <svg class="char-art" viewBox="30 72 340 408" role="img" aria-label="Ilustrasi Fujino: rambut bob cokelat kemerahan, alis tegas, senyum puas, hoodie hijau.">
+          <g stroke="#1f2a22" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+            <path id="f-hairback" fill="#8b4a33" d="M124 206C116 112 284 112 276 206C280 250 276 284 264 300H136C124 284 120 250 124 206Z"/>
+            <path id="f-hood" fill="#9cc53f" d="M64 480C72 392 122 346 200 342C278 346 328 392 336 480Z"/>
+            <path fill="#86ad33" d="M136 352C150 392 250 392 264 352C244 336 156 336 136 352Z"/>
+            <path fill="none" d="M182 384L178 430M218 384L222 430M120 420Q130 450 128 480M280 420Q270 450 272 480"/>
+            <circle fill="#f6f1e3" cx="178" cy="434" r="4"/><circle fill="#f6f1e3" cx="222" cy="434" r="4"/>
+            <path fill="#f3d9bf" d="M182 296V344Q200 354 218 344V296Z"/>
+            <path fill="#f3d9bf" d="M146 222q-14-4-12 14q2 14 16 12M254 222q14-4 12 14q-2 14-16 12"/>
+            <path id="f-face" fill="#f3d9bf" d="M142 204C142 146 258 146 258 204C258 262 234 304 200 306C166 304 142 262 142 204Z"/>
+            <path id="f-bangs" fill="#8b4a33" d="M134 214C128 146 176 118 214 122C256 126 272 166 266 214C258 192 246 180 232 176L236 198C220 180 200 172 184 176L186 194C170 184 152 192 134 214Z"/>
+            <path fill="none" d="M206 124q8-24 28-16"/>
+            <path id="f-brows" fill="none" stroke-width="4.5" d="M160 212L186 221M240 212L214 221"/>
+            <ellipse fill="#1f2a22" cx="176" cy="240" rx="7" ry="10"/><ellipse fill="#1f2a22" cx="224" cy="240" rx="7" ry="10"/>
+            <circle fill="#fff" stroke="none" cx="178.5" cy="236" r="2.6"/><circle fill="#fff" stroke="none" cx="226.5" cy="236" r="2.6"/>
+            <path id="f-mouth" fill="#fff" d="M184 268Q200 288 216 268Z"/>
+            <path fill="none" stroke="#e88a8a" stroke-width="2" d="M156 260l6-4M164 262l6-4M232 258l6-4M240 260l6-4"/>
+            <path fill="#f2c94c" d="M318 132l6 16 16 6-16 6-6 16-6-16-16-6 16-6z"/>
+            <path fill="#f2c94c" d="M332 250l4 10 10 4-10 4-4 10-4-10-10-4 10-4z"/>
+          </g>
+        </svg>
+        <button class="anno" type="button" style="--x:72%;--y:24%" data-hl="f-hairback f-bangs">rambut bob cokelat kemerahan</button>
+        <button class="anno l" type="button" style="--x:37%;--y:35%" data-hl="f-brows">alis tegas: yakin dirinya jago</button>
+        <button class="anno l" type="button" style="--x:45%;--y:50%" data-hl="f-mouth">senyum puas tiap dipuji</button>
+        <button class="anno" type="button" style="--x:76%;--y:72%" data-hl="f-hood">hoodie hijau, sama seperti di sampul</button>
+      </div>
+      <div class="char-info">
+        <p class="char-jp" lang="ja">藤野</p>
+        <h3>Fujino</h3>
+        <p class="char-role">Si pencerita · Pengisi suara: Yūmi Kawai</p>
+        <p>Bintang kecil koran kelas. Komik empat panelnya selalu bikin satu kelas tertawa, dan ia sangat menikmati pujian itu. Saat sadar ada anak lain yang menggambar jauh lebih baik, gengsinya terluka. Jawabannya: berlatih tanpa henti, buku sketsa demi buku sketsa.</p>
+        <ul class="traits" aria-label="Sifat">
+          <li>Kompetitif</li><li>Gengsi tinggi</li><li>Lucu</li><li>Pekerja keras</li>
+        </ul>
+        <p class="meter-cap">Kemampuan · versi penggemar</p>
+        <div class="meters" aria-label="Kemampuan (versi penggemar)">
+          <div class="meter" style="--v:.92"><span>Tokoh</span><i></i></div>
+          <div class="meter" style="--v:.45"><span>Latar</span><i></i></div>
+          <div class="meter" style="--v:.96"><span>Cerita</span><i></i></div>
+          <div class="meter" style="--v:.85"><span>Nyali</span><i></i></div>
+        </div>
+        <p class="char-quote hand">“Aku cuma perlu berlatih lebih keras.”</p>
+      </div>
+    </div>
+
+    <!-- Kyomoto -->
+    <div class="char-panel" role="tabpanel" id="panel-kyomoto" aria-labelledby="tab-kyomoto" hidden>
+      <div class="char-sheet">
+        <p class="sheet-tag"><span lang="ja">設定資料</span> · No.02</p>
+        <svg class="char-art" viewBox="30 72 340 408" role="img" aria-label="Ilustrasi Kyomoto: rambut hitam panjang dengan poni tebal, mata menghindar, jaket hanten, memeluk buku sketsa.">
+          <g stroke="#1f2a22" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+            <path id="k-hairback" fill="#2f2e2a" d="M118 200C108 96 292 96 282 200C286 290 300 380 306 440Q280 456 258 430H142Q120 456 94 440C100 380 114 290 118 200Z"/>
+            <path id="k-jacket" fill="#d9cfb4" d="M74 480C80 396 126 356 200 354C274 356 320 396 326 480Z"/>
+            <path fill="none" stroke-width="2" opacity=".5" d="M104 440l8 8M136 404l8 8M256 404l8 8M288 440l8 8"/>
+            <path fill="#8c6a4c" d="M156 360L200 440L244 360L228 356L200 412L172 356Z"/>
+            <path fill="#f6f1e3" d="M172 356L200 412L228 356Q200 368 172 356Z"/>
+            <path fill="#f3d9bf" d="M184 300V352Q200 362 216 352V300Z"/>
+            <path id="k-face" fill="#f3d9bf" d="M144 206C144 150 256 150 256 206C256 262 232 302 200 304C168 302 144 262 144 206Z"/>
+            <path id="k-bangs" fill="#2f2e2a" d="M132 230C120 140 170 116 200 116C232 116 282 140 268 230L258 236L252 214L240 236L230 210L218 238L206 212L194 238L182 210L170 236L160 212L148 236Z"/>
+            <path fill="#2f2e2a" d="M140 230C132 300 128 360 122 420L146 410C150 350 152 290 156 240ZM260 230C268 300 272 360 278 420L254 410C250 350 248 290 244 240Z"/>
+            <path id="k-eyes" fill="none" d="M160 246q10-6 20 0M210 246q10-6 20 0"/>
+            <ellipse fill="#1f2a22" cx="166" cy="256" rx="5.5" ry="7.5"/><ellipse fill="#1f2a22" cx="216" cy="256" rx="5.5" ry="7.5"/>
+            <circle fill="#fff" stroke="none" cx="167" cy="253" r="2"/><circle fill="#fff" stroke="none" cx="217" cy="253" r="2"/>
+            <path fill="none" d="M190 284q5-4 10 0q5 4 10 0"/>
+            <path fill="none" stroke="#e88a8a" stroke-width="2.4" d="M154 272l6-4M162 274l6-4M226 272l6-4M234 274l6-4"/>
+            <path fill="#bfe0ee" d="M274 190q9 13 0 20q-9-7 0-20z"/>
+            <g id="k-book">
+              <path fill="#f6f1e3" d="M122 424L278 412L284 480H116Z"/>
+              <path fill="none" stroke-width="2" d="M142 442l118-9M142 458l88-7"/>
+              <path fill="#c47f52" d="M116 480L122 424L131 424L125 480Z"/>
+            </g>
+            <path fill="#f3d9bf" d="M148 420q10-14 24-4l-2 16q-14 6-22-12zM228 412q14-10 24 4q-8 18-22 12z"/>
+          </g>
+        </svg>
+        <button class="anno" type="button" style="--x:69%;--y:22%" data-hl="k-bangs">poni tebal, tempat bersembunyi</button>
+        <button class="anno l" type="button" style="--x:37%;--y:43%" data-hl="k-eyes">tatapan selalu menghindar</button>
+        <button class="anno" type="button" style="--x:80%;--y:76%" data-hl="k-jacket">jaket hanten: jarang keluar rumah</button>
+        <button class="anno l" type="button" style="--x:34%;--y:93%" data-hl="k-book">buku sketsa selalu dipeluk</button>
+      </div>
+      <div class="char-info">
+        <p class="char-jp" lang="ja">京本</p>
+        <h3>Kyomoto</h3>
+        <p class="char-role">Si penggambar latar · Pengisi suara: Mizuki Yoshida</p>
+        <p>Teman sekelas yang tak pernah datang ke sekolah. Sendirian di kamarnya, ia menggambar latar dengan ketelitian yang membuat orang dewasa pun terdiam. Di balik pintu itu, diam-diam ia penggemar nomor satu Fujino. Belakangan ia punya mimpinya sendiri: belajar melukis lebih serius di sekolah seni.</p>
+        <ul class="traits" aria-label="Sifat">
+          <li>Pemalu</li><li>Tekun</li><li>Detail</li><li>Penggemar no.1 Fujino</li>
+        </ul>
+        <p class="meter-cap">Kemampuan · versi penggemar</p>
+        <div class="meters" aria-label="Kemampuan (versi penggemar)">
+          <div class="meter" style="--v:.55"><span>Tokoh</span><i></i></div>
+          <div class="meter" style="--v:1"><span>Latar</span><i></i></div>
+          <div class="meter" style="--v:.5"><span>Cerita</span><i></i></div>
+          <div class="meter" style="--v:.25"><span>Nyali</span><i></i></div>
+        </div>
+        <p class="char-quote hand">“Fujino-sensei… aku penggemarmu!”</p>
+      </div>
+    </div>
+
+    <!-- Duo -->
+    <div class="char-panel" role="tabpanel" id="panel-duo" aria-labelledby="tab-duo" hidden>
+      <div class="char-sheet duo-sheet">
+        <p class="sheet-tag"><span lang="ja">設定資料</span> · No.03</p>
+        <div class="duo-art" id="duoArt" aria-hidden="true"></div>
+        <div class="duo-title" aria-hidden="true"><span lang="ja">藤野キョウ</span><small class="hand">cerita oleh Fujino · latar oleh Kyomoto</small></div>
+      </div>
+      <div class="char-info">
+        <p class="char-jp" lang="ja">藤野キョウ</p>
+        <h3>Fujino Kyō</h3>
+        <p class="char-role">Nama pena berdua · Fujino + Kyomoto</p>
+        <p>Begitu pintu itu terbuka, dua meja dirapatkan. Fujino memegang cerita dan tokoh, Kyomoto mengisi setiap latar. Mereka mengirim naskah sebagai satu nama, dan untuk beberapa tahun, satu nama itu sudah cukup untuk menaklukkan dunia kecil mereka.</p>
+        <ul class="traits" aria-label="Ciri">
+          <li>Cerita + Latar</li><li>Satu meja</li><li>Tak terpisahkan</li>
+        </ul>
+        <p class="meter-cap">Kemampuan · versi penggemar</p>
+        <div class="meters" aria-label="Kemampuan (versi penggemar)">
+          <div class="meter" style="--v:.95"><span>Tokoh</span><i></i></div>
+          <div class="meter" style="--v:1"><span>Latar</span><i></i></div>
+          <div class="meter" style="--v:.96"><span>Cerita</span><i></i></div>
+          <div class="meter" style="--v:.9"><span>Nyali</span><i></i></div>
+        </div>
+        <p class="char-quote hand">“Dua nama, satu halaman.”</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · JALAN PULANG ====================================== -->
+<section class="scene-band" id="jalan" aria-labelledby="jalan-title" data-rain="off">
+  <div class="scene-head wrap">
+    <p class="chapter-label reveal">03 — <span lang="ja">道</span> · Jalan Pulang</p>
+    <h2 id="jalan-title" class="reveal">Hujan, sawah, dan langkah yang tak bisa diam.</h2>
+    <p class="reveal">Akita bagian pesisir: sawah membentang sampai kaki gunung Chōkai, tiang listrik berderet di pinggir jalan sepi. Setelah dipuji oleh orang yang paling ia kagumi, Fujino pulang menari di bawah hujan. Mungkin itu adegan paling bahagia di seluruh cerita.</p>
+    <div class="chip-row reveal">
+      <button class="chip" id="rainToggle" type="button" aria-pressed="false"><span lang="ja">雨</span> Turunkan hujan</button>
+      <span class="hand hint">← coba klik</span>
+    </div>
+  </div>
+
+  <div class="scene" id="fieldScene">
+    <svg class="scene-svg" viewBox="0 0 1600 760" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Ilustrasi jalan desa di antara sawah, gunung di kejauhan, dan seorang gadis berjalan pulang.">
+      <defs>
+        <linearGradient id="skyField" x1="0" y1="0" x2="0" y2="1"><stop class="st-sky1" offset="0"/><stop class="st-sky2" offset="1"/></linearGradient>
+      </defs>
+      <rect width="1600" height="760" fill="url(#skyField)"/>
+      <g class="px" data-d="0.12">
+        <g class="clouds" fill="#fbf8ef" stroke="#1f2a22" stroke-width="1.6" stroke-linejoin="round">
+          <path d="M1360 250c10-30 60-34 74-8 18-22 66-14 66 18 26 0 34 30 10 38H1350c-26-6-22-46 10-48z"/>
+          <path d="M1080 120c12-26 58-30 72-6 20-20 70-10 68 22 30 2 34 34 6 40h-152c-28-6-24-52 6-56z"/>
+          <path d="M640 230c8-18 40-20 50-4 14-12 46-6 44 14 20 2 22 24 4 28H636c-18-4-16-36 4-38z"/>
+        </g>
+      </g>
+      <g class="px" data-d="0.22">
+        <path class="mtn" d="M0 440 L220 400 L480 330 L640 268 L740 236 L800 230 L860 248 L980 300 L1180 352 L1400 392 L1600 410 V960 H0Z" stroke="#1f2a22" stroke-width="2"/>
+        <path class="mtn-snow" d="M690 252 L740 236 L800 230 L860 248 L900 268 L860 262 L830 274 L800 258 L768 276 L740 262 L712 270Z"/>
+        <path d="M560 300 l40 40 M640 280 l30 50 M900 280 l-24 44 M980 310 l-30 40" stroke="#1f2a22" stroke-width="1.2" opacity=".35" fill="none"/>
+      </g>
+      <g class="px" data-d="0.38">
+        <path class="hill" d="M0 478 Q180 440 380 466 T780 462 T1180 458 T1600 470 V960 H0Z" stroke="#1f2a22" stroke-width="2"/>
+        <g class="treeline" id="treeline"></g>
+        <g class="houses-far" id="housesFar"></g>
+      </g>
+      <g class="px" data-d="0.62">
+        <rect class="field" y="482" width="1600" height="480"/>
+        <g id="paddies" stroke="#1f2a22" fill="none"></g>
+        <path class="road" d="M786 482 L814 482 L1340 960 L260 960Z" stroke="#1f2a22" stroke-width="2"/>
+        <path d="M800 486 L800 760" stroke="#f6f1e3" stroke-width="3" stroke-dasharray="14 18" opacity=".7"/>
+        <g id="poles" stroke="#1f2a22" stroke-linecap="round" fill="none"></g>
+        <g class="puddles" opacity="0">
+          <ellipse cx="700" cy="720" rx="70" ry="10" fill="#9fcbe0" stroke="#1f2a22" stroke-width="1.2"/>
+          <ellipse cx="900" cy="650" rx="44" ry="7" fill="#9fcbe0" stroke="#1f2a22" stroke-width="1.2"/>
+        </g>
+      </g>
+      <g class="px" data-d="0.62">
+        <g class="girl-wrap" transform="translate(752 612)">
+          <g class="girl">
+            <ellipse cx="0" cy="96" rx="22" ry="5" fill="#1f2a22" opacity=".18"/>
+            <path class="leg leg-l" d="M-6 58 L-10 94" stroke="#1f2a22" stroke-width="5" stroke-linecap="round"/>
+            <path class="leg leg-r" d="M6 58 L10 94" stroke="#1f2a22" stroke-width="5" stroke-linecap="round"/>
+            <path d="M-16 24 Q-18 50 -18 62 H18 Q18 50 16 24 Q0 16 -16 24Z" fill="#9cc53f" stroke="#1f2a22" stroke-width="2.4" stroke-linejoin="round"/>
+            <path class="arm arm-l" d="M-15 28 L-30 46" stroke="#1f2a22" stroke-width="4.5" stroke-linecap="round"/>
+            <path class="arm arm-r" d="M15 28 L30 46" stroke="#1f2a22" stroke-width="4.5" stroke-linecap="round"/>
+            <circle cx="0" cy="8" r="13" fill="#f3d9bf" stroke="#1f2a22" stroke-width="2.4"/>
+            <path d="M-14 8 Q-16 -10 0 -8 Q16 -10 14 8 Q14 20 10 22 L10 6 Q0 2 -10 6 L-10 22 Q-14 20 -14 8Z" fill="#8b4a33" stroke="#1f2a22" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M8 -6 q8 -6 12 -2" stroke="#1f2a22" stroke-width="2" fill="none"/>
+          </g>
+        </g>
+      </g>
+      <g class="px" data-d="0.9" id="grassFront" stroke="#1f2a22" stroke-width="2" fill="none" stroke-linecap="round"></g>
+    </svg>
+    <canvas class="fx" id="rainCanvas" aria-hidden="true"></canvas>
+    <p class="scene-note hand" id="rainNote" aria-live="polite">“Langit cerah. Seperti biasa.”</p>
+  </div>
+</section>
+
+<!-- 03 · KELAS ============================================= -->
+<section class="band band-soft" id="kelas" aria-labelledby="kelas-title">
+  <div class="wrap kelas-grid">
+    <div class="kelas-copy">
+      <p class="chapter-label reveal">04 — <span lang="ja">教室</span> · Ruang Kelas</p>
+      <h2 id="kelas-title" class="reveal">Koran kelas, dan halaman yang membuat Fujino berhenti tertawa.</h2>
+      <p class="reveal">Setiap minggu komik empat panel Fujino dimuat di koran kelas, dan seisi kelas memujinya. Lalu muncul komik dari Kyomoto, anak yang tak pernah datang ke sekolah, dengan latar yang digambar sangat teliti. Geser garis pembatas untuk membandingkan keduanya.</p>
+      <ul class="notes reveal" aria-label="Fakta singkat">
+        <li class="note-card" style="--r:-2deg"><b>143</b><span>halaman one-shot</span></li>
+        <li class="note-card" style="--r:1.5deg"><b>19.07.2021</b><span>terbit di Shōnen Jump+</span></li>
+        <li class="note-card" style="--r:-1deg"><b>2 gadis</b><span>Fujino &amp; Kyomoto</span></li>
+      </ul>
+    </div>
+
+    <div class="compare reveal" id="compare" style="--pos:50%">
+      <div class="compare-pane pane-kyomoto" aria-hidden="true">
+        <svg viewBox="0 0 800 560" preserveAspectRatio="xMidYMid slice">
+          <rect width="800" height="560" fill="#f3eddc"/>
+          <g stroke="#1f2a22" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M0 380 L800 360" stroke-width="1.5"/>
+            <path d="M120 380 L180 170 L520 140 L640 360" stroke-width="2.2" fill="#ece4cc"/>
+            <path d="M180 170 L250 110 L560 92 L520 140" stroke-width="2.2" fill="url(#hatch)"/>
+            <path d="M520 140 L560 92 L700 300 L640 360" stroke-width="2.2" fill="url(#hatch2)"/>
+            <g stroke-width="1.4" id="kyoWindows"></g>
+            <path d="M330 380 L340 300 L400 296 L410 378" stroke-width="2" fill="url(#hatch)"/>
+            <path d="M370 140 L372 70 L410 68 L408 138" stroke-width="2" fill="#f3eddc"/>
+            <circle cx="390" cy="96" r="14" stroke-width="1.6"/><path d="M390 96 l0 -9 M390 96 l7 4" stroke-width="1.4"/>
+            <g id="kyoTrees" stroke-width="1.3"></g>
+            <path d="M0 470 Q200 450 400 462 T800 450" stroke-width="1.2"/>
+            <path d="M0 520 Q240 500 420 512 T800 500" stroke-width="1"/>
+            <g id="kyoGrass" stroke-width="1"></g>
+            <path d="M560 40c14-18 46-18 56 0 16-10 44-2 40 16 18 4 16 24-4 26H556c-22-4-18-40 4-42z" stroke-width="1.4"/>
+            <path d="M80 80c10-14 34-14 42 0 12-8 34-2 30 12 14 4 12 20-4 20H76c-16-4-14-30 4-32z" stroke-width="1.2"/>
+            <path d="M600 60 l20 2 M610 70 l26 0 M86 96 l28 0" stroke-width=".8" opacity=".6"/>
+          </g>
+        </svg>
+        <span class="pane-tag hand">Kyomoto</span>
+      </div>
+      <div class="compare-pane pane-fujino" aria-hidden="true">
+        <svg viewBox="0 0 800 560" preserveAspectRatio="xMidYMid slice">
+          <rect width="800" height="560" fill="#fbf7ea"/>
+          <g stroke="#1f2a22" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M0 400 H800"/>
+            <rect x="230" y="200" width="340" height="200" fill="#fff"/>
+            <path d="M210 205 L400 120 L590 205Z" fill="#f2b8a0"/>
+            <rect x="270" y="240" width="50" height="44"/><rect x="480" y="240" width="50" height="44"/>
+            <rect x="370" y="310" width="60" height="90" fill="#f7e19a"/>
+            <circle cx="660" cy="110" r="44" fill="#ffd95c"/>
+            <path d="M644 104 v6 M676 104 v6 M644 124 q16 14 32 0"/>
+            <path d="M660 50 v-20 M720 110 h20 M600 110 h-20 M700 70 l14 -14 M620 70 l-14 -14"/>
+            <circle cx="140" cy="350" r="16" fill="#fff"/><path d="M140 366 v26 M126 376 h28 M140 392 l-10 18 M140 392 l10 18"/>
+            <path d="M150 330 q10 -30 40 -40" stroke-width="2.4"/>
+            <text x="90" y="280" font-family="Caveat, cursive" font-size="34" fill="#1f2a22" stroke="none">Haha!</text>
+            <path d="M80 470 l30 -16 M640 470 l40 -10 M380 480 l26 0" stroke-width="2.4"/>
+          </g>
+        </svg>
+        <span class="pane-tag hand">Fujino</span>
+      </div>
+      <div class="compare-handle" aria-hidden="true"><span>⟷</span></div>
+      <input class="compare-range" id="compareRange" type="range" min="0" max="100" value="50" aria-label="Geser untuk membandingkan gambar Fujino dan Kyomoto">
+    </div>
+  </div>
+</section>
+
+<!-- 04 · PINTU ============================================= -->
+<section class="band band-paper" id="pintu" aria-labelledby="pintu-title">
+  <div class="wrap pintu-grid">
+    <div class="door-stage reveal" id="doorStage" data-state="closed">
+      <svg class="door-svg" viewBox="0 0 800 640" role="img" aria-label="Pintu geser rumah Kyomoto. Di baliknya ada tumpukan buku sketsa.">
+        <rect width="800" height="640" fill="#e9dcc0"/>
+        <g stroke="#1f2a22" stroke-width="2" fill="none" opacity=".3" id="wallBoards"></g>
+        <!-- inside (revealed when door opens) -->
+        <rect x="200" y="110" width="400" height="430" fill="#2a2a24"/>
+        <g class="inside" stroke="#1f2a22" stroke-width="2" stroke-linejoin="round">
+          <path d="M200 540 L260 470 H540 L600 540Z" fill="#3a352c"/>
+          <g id="sketchbooks"></g>
+          <path d="M470 300 h60 v6 h-60z M500 306 v40" fill="#cfc4a6"/>
+          <path d="M450 470 l40 -120 h30 l-10 120" fill="#d9cfb4" opacity=".9"/>
+          <text x="430" y="210" font-family="Caveat, cursive" font-size="26" fill="#f3eedf" stroke="none" opacity=".85">bertahun-tahun...</text>
+        </g>
+        <!-- door frame -->
+        <rect x="186" y="96" width="428" height="458" fill="none" stroke="#1f2a22" stroke-width="4"/>
+        <path d="M160 96 H640 L620 70 H180Z" fill="#7b5236" stroke="#1f2a22" stroke-width="3" stroke-linejoin="round"/>
+        <g class="door-panel door-left">
+          <rect x="200" y="110" width="200" height="430" fill="#b07a4e" stroke="#1f2a22" stroke-width="3"/>
+          <rect x="216" y="126" width="168" height="300" fill="#efe6cf" stroke="#1f2a22" stroke-width="2"/>
+          <path d="M272 126 V426 M328 126 V426 M216 186 H384 M216 246 H384 M216 306 H384 M216 366 H384" stroke="#1f2a22" stroke-width="2"/>
+          <rect x="370" y="300" width="8" height="40" rx="3" fill="#1f2a22"/>
+        </g>
+        <g class="door-panel door-right">
+          <rect x="400" y="110" width="200" height="430" fill="#b07a4e" stroke="#1f2a22" stroke-width="3"/>
+          <rect x="416" y="126" width="168" height="300" fill="#efe6cf" stroke="#1f2a22" stroke-width="2"/>
+          <path d="M472 126 V426 M528 126 V426 M416 186 H584 M416 246 H584 M416 306 H584 M416 366 H584" stroke="#1f2a22" stroke-width="2"/>
+        </g>
+        <rect x="150" y="540" width="500" height="22" fill="#8c6a4c" stroke="#1f2a22" stroke-width="3"/>
+        <path d="M120 562 H680 L720 640 H80Z" fill="#cdbf9f" stroke="#1f2a22" stroke-width="2"/>
+        <ellipse cx="400" cy="604" rx="120" ry="16" fill="#b6a684" stroke="#1f2a22" stroke-width="2"/>
+        <rect x="640" y="230" width="90" height="34" fill="#f3eedf" stroke="#1f2a22" stroke-width="2"/>
+        <text x="685" y="254" text-anchor="middle" font-family="Yusei Magic, serif" font-size="20" fill="#1f2a22" lang="ja">京本</text>
+      </svg>
+      <div class="slip" id="slip" tabindex="0" role="button" aria-label="Komik empat panel. Seret ke bawah pintu, atau tekan Enter untuk menyelipkan.">
+        <span class="slip-row"></span><span class="slip-row"></span><span class="slip-row"></span><span class="slip-row"></span>
+      </div>
+      <span class="drop-hint hand" aria-hidden="true">seret ke celah pintu ↑</span>
+    </div>
+
+    <div class="pintu-copy">
+      <p class="chapter-label reveal">05 — <span lang="ja">扉</span> · Pintu Kyomoto</p>
+      <h2 id="pintu-title" class="reveal">Selembar komik, diselipkan di bawah pintu.</h2>
+      <p class="reveal">Di hari kelulusan, Fujino diminta mengantar ijazah ke rumah Kyomoto. Ia tidak mengetuk. Ia menggambar komik empat panel dan menyelipkannya lewat celah pintu. Satu kertas kecil yang mengubah hidup dua orang.</p>
+      <p class="door-result" id="doorResult" aria-live="polite" hidden>Pintu terbuka. Ternyata selama ini ada yang membaca setiap komiknya, dan sudah lama menunggu untuk berkata: <em>“Fujino-sensei!”</em></p>
+      <button class="btn btn-ghost" id="slipBtn" type="button">Selipkan komiknya</button>
+    </div>
+  </div>
+</section>
+
+<!-- 05 · MUSIM ============================================= -->
+<section class="scene-band season-band" id="musim" aria-labelledby="musim-title" data-season="spring">
+  <div class="scene-head wrap">
+    <p class="chapter-label reveal">06 — <span lang="ja">季節</span> · Empat Musim</p>
+    <h2 id="musim-title" class="reveal">Dua meja, empat musim, dan tumpukan buku sketsa.</h2>
+    <div class="season-ui reveal">
+      <div class="seasons" role="tablist" aria-label="Pilih musim">
+        <button role="tab" class="season-btn" data-s="spring" aria-selected="true"><span lang="ja">春</span>Semi</button>
+        <button role="tab" class="season-btn" data-s="summer" aria-selected="false"><span lang="ja">夏</span>Panas</button>
+        <button role="tab" class="season-btn" data-s="autumn" aria-selected="false"><span lang="ja">秋</span>Gugur</button>
+        <button role="tab" class="season-btn" data-s="winter" aria-selected="false"><span lang="ja">冬</span>Dingin</button>
+      </div>
+      <p class="season-text" id="seasonText" aria-live="polite"></p>
+      <p class="sketch-count"><b id="bookCount">1</b> <span>buku sketsa terisi</span></p>
+    </div>
+  </div>
+  <div class="scene" id="villageScene">
+    <svg class="scene-svg" viewBox="0 0 1600 760" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Desa kecil di Akita dengan rumah kayu dan pohon besar yang berganti warna mengikuti musim.">
+      <defs>
+        <linearGradient id="skyVillage" x1="0" y1="0" x2="0" y2="1"><stop class="vs-sky1" offset="0"/><stop class="vs-sky2" offset="1"/></linearGradient>
+      </defs>
+      <rect width="1600" height="760" fill="url(#skyVillage)"/>
+      <circle class="sun" cx="1260" cy="150" r="46" stroke="#1f2a22" stroke-width="2"/>
+      <g class="px" data-d="0.2">
+        <path class="v-mtn" d="M0 430 L300 330 L520 380 L760 280 L1040 370 L1300 300 L1600 380 V960 H0Z" stroke="#1f2a22" stroke-width="2"/>
+        <path class="v-snowcap" d="M700 306 L760 280 L820 306 L790 300 L760 312 L730 300Z M1250 318 L1300 300 L1350 318 L1320 314 L1300 324 L1280 314Z"/>
+      </g>
+      <g class="px" data-d="0.45">
+        <path class="v-ground" d="M0 540 Q400 500 800 528 T1600 520 V960 H0Z" stroke="#1f2a22" stroke-width="2"/>
+        <g id="villageHouses"></g>
+      </g>
+      <g class="px" data-d="0.7">
+        <g class="bigtree" transform="translate(1000 0)">
+          <path d="M300 760 C300 640 290 560 270 500 M300 640 C330 600 360 580 400 570 M290 600 C260 580 230 570 200 572" stroke="#1f2a22" stroke-width="10" stroke-linecap="round" fill="none"/>
+          <path d="M300 760 C300 640 290 560 270 500" stroke="#7b5236" stroke-width="6" stroke-linecap="round" fill="none"/>
+          <g class="foliage" stroke="#1f2a22" stroke-width="2.2">
+            <circle cx="200" cy="470" r="80"/><circle cx="300" cy="420" r="100"/><circle cx="410" cy="470" r="84"/>
+            <circle cx="250" cy="520" r="70"/><circle cx="360" cy="530" r="70"/><circle cx="300" cy="340" r="64"/>
+          </g>
+          <g class="tree-snow" fill="#fbfbf6" stroke="#1f2a22" stroke-width="1.5">
+            <path d="M232 330 q68 -44 136 0 q-68 -16 -136 0z"/><path d="M130 430 q60 -40 120 -10 q-60 -6 -120 10z"/><path d="M350 410 q60 -30 130 10 q-66 -12 -130 -10z"/>
+          </g>
+        </g>
+        <path class="v-front" d="M0 700 Q400 668 800 690 T1600 680 V960 H0Z" stroke="#1f2a22" stroke-width="2"/>
+        <g class="desk-duo" transform="translate(760 610)">
+          <rect x="0" y="40" width="210" height="10" fill="#c47f52" stroke="#1f2a22" stroke-width="2"/>
+          <path d="M10 50 v40 M200 50 v40" stroke="#1f2a22" stroke-width="3"/>
+          <g id="bookStack"></g>
+          <g transform="translate(40 -6)"><circle cx="0" cy="0" r="12" fill="#8b4a33" stroke="#1f2a22" stroke-width="2"/><path d="M-14 46 Q-14 18 0 14 Q14 18 14 46Z" fill="#9cc53f" stroke="#1f2a22" stroke-width="2"/></g>
+          <g transform="translate(160 -6)"><circle cx="0" cy="0" r="12" fill="#3b3a35" stroke="#1f2a22" stroke-width="2"/><path d="M-12 -4 q-6 22 2 30 M12 -4 q6 22 -2 30" stroke="#3b3a35" stroke-width="5" fill="none"/><path d="M-14 46 Q-14 18 0 14 Q14 18 14 46Z" fill="#d9cfb4" stroke="#1f2a22" stroke-width="2"/></g>
+        </g>
+      </g>
+    </svg>
+    <canvas class="fx" id="seasonCanvas" aria-hidden="true"></canvas>
+  </div>
+</section>
+
+<!-- SPOILER ================================================ -->
+<section class="band band-card" id="jika" aria-labelledby="jika-title">
+  <div class="wrap narrow">
+    <p class="chapter-label reveal"><span lang="ja">後ろ</span> · Bagaimana jika…</p>
+    <h2 id="jika-title" class="reveal">Cerita ini tidak berakhir seperti yang kamu kira.</h2>
+    <div class="spoiler reveal" id="spoiler" data-open="false">
+      <div class="spoiler-body">
+        <p>Di paruh akhir, Look Back berubah menjadi renungan tentang duka dan rasa bersalah. Sebuah tragedi menghantam, dan Fujino bertanya-tanya apakah semuanya akan berbeda seandainya ia tak pernah menyelipkan komik itu di bawah pintu.</p>
+        <p>Fujimoto lalu membayangkan dunia lain, tempat dua gadis itu tak pernah bertemu, dan selembar komik kembali menyelinap lewat celah pintu, kali ini ke arah yang berlawanan. Jawabannya tidak diucapkan. Jawabannya ada pada punggung yang kembali membungkuk di atas meja.</p>
+      </div>
+      <button class="spoiler-btn" id="spoilerBtn" type="button" aria-expanded="false" aria-controls="spoiler">
+        <span class="stamp">SPOILER</span><span>Klik untuk membuka</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- 07 · GALERI ============================================ -->
+<section class="band band-soft gallery" id="galeri" aria-labelledby="galeri-title">
+  <div class="wrap gallery-head">
+    <div>
+      <p class="chapter-label reveal">07 — <span lang="ja">場面</span> · Galeri Adegan</p>
+      <h2 id="galeri-title" class="reveal">Setiap frame terasa seperti halaman yang digambar tangan.</h2>
+      <p class="reveal">Sutradara Kiyotaka Oshiyama membiarkan garis pensil tetap hidup di layar, goyah dan bernapas seperti sketsa. Seret pita film di bawah, lalu klik adegan mana pun untuk melihatnya lebih besar.</p>
+    </div>
+    <button class="trailer reveal" id="trailer" type="button" data-yt="gH6zVJVHEaM" aria-label="Putar trailer resmi Look Back dari avex pictures">
+      <img src="assets/gallery/salju-t.webp" width="720" height="360" alt="" loading="lazy" decoding="async">
+      <span class="trailer-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+      <span class="trailer-cap"><b>Trailer resmi</b> avex pictures · YouTube</span>
+    </button>
+  </div>
+
+  <div class="strip reveal" id="strip" tabindex="0" aria-label="Pita film adegan Look Back, geser ke samping">
+    <ol class="frames" id="frames"></ol>
+  </div>
+  <div class="wrap strip-foot">
+    <span class="hand">← seret pita filmnya →</span>
+    <span class="strip-credit">© Tatsuki Fujimoto/Shueisha · © 2024 Look Back Film Partners · beberapa still via GKIDS</span>
+  </div>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Adegan film">
+    <figure class="lb-figure" data-no-i18n>
+      <img id="lbImg" alt="">
+      <figcaption><span class="lb-no" id="lbNo"></span><b id="lbTitle"></b><span id="lbDesc"></span></figcaption>
+    </figure>
+    <button class="lb-btn lb-prev" id="lbPrev" type="button" aria-label="Adegan sebelumnya">←</button>
+    <button class="lb-btn lb-next" id="lbNext" type="button" aria-label="Adegan berikutnya">→</button>
+    <button class="lb-close" id="lbClose" type="button" aria-label="Tutup">✕</button>
+  </dialog>
+</section>
+
+<!-- 08 · FUJIMOTO ========================================== -->
+<section class="band band-dark" id="fujimoto" aria-labelledby="fuji-title">
+  <div class="wrap">
+    <p class="chapter-label on-dark reveal">08 — <span lang="ja">作者</span> · Tatsuki Fujimoto</p>
+    <h2 id="fuji-title" class="reveal">Mangaka yang menggambar seperti sedang menyutradarai film.</h2>
+    <div class="fuji-intro reveal">
+      <p>Lahir di Nikaho, Akita, kota pesisir dengan sawah dan gunung yang sama seperti di Look Back. Karya Fujimoto dikenal karena panel yang terasa sinematik, halaman tanpa dialog yang dibiarkan bernapas, dan kesediaannya mematahkan hati pembaca tanpa peringatan. Look Back adalah karyanya yang paling personal: surat cinta, sekaligus surat duka, untuk setiap orang yang menggambar.</p>
+    </div>
+
+    <div class="works" id="works" tabindex="0" aria-label="Karya Tatsuki Fujimoto, geser ke samping">
+      <article class="work">
+        <svg viewBox="0 0 120 80" aria-hidden="true"><path d="M60 72c-22 0-30-16-24-32 4 10 10 12 12 8-6-14 4-30 16-38-2 12 8 18 10 28 4-6 4-12 2-18 12 10 16 28 8 40-6 8-14 12-24 12z" fill="#e8763a" stroke="#f3eedf" stroke-width="2"/></svg>
+        <span class="work-year">2016–2018</span><h3>Fire Punch</h3><p>Pria yang terbakar abadi di dunia beku. Debut serial yang brutal dan tak terduga, 8 volume di Shōnen Jump+.</p>
+      </article>
+      <article class="work">
+        <svg viewBox="0 0 120 80" aria-hidden="true"><path d="M14 52h70l22-12-22-12H14z" fill="#e0a43a" stroke="#f3eedf" stroke-width="2" stroke-linejoin="round"/><path d="M20 28l6-6 6 6 6-6 6 6 6-6 6 6 6-6 6 6 6-6 6 6M20 52l6 6 6-6 6 6 6-6 6 6 6-6 6 6 6-6 6 6 6-6" stroke="#f3eedf" stroke-width="2" fill="none"/></svg>
+        <span class="work-year">2018–sekarang</span><h3>Chainsaw Man</h3><p>Denji, Pochita, dan iblis-iblis yang lapar. Karya yang membuat nama Fujimoto meledak ke seluruh dunia.</p>
+      </article>
+      <article class="work work-feature">
+        <svg viewBox="0 0 120 80" aria-hidden="true"><path d="M20 66h80M34 66V40l16-20h22" stroke="#9cc53f" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M66 14h24l-6 14H70z" fill="#9cc53f" stroke="#f3eedf" stroke-width="2"/><path d="M78 30l-14 30M84 30l18 30" stroke="#9cc53f" stroke-width="1.5" opacity=".5"/></svg>
+        <span class="work-year">2021 · one-shot</span><h3>Look Back</h3><p>143 halaman tentang dua gadis yang menggambar. Dibaca jutaan kali di hari pertama terbit.</p>
+      </article>
+      <article class="work">
+        <svg viewBox="0 0 120 80" aria-hidden="true"><rect x="30" y="18" width="60" height="44" rx="6" fill="none" stroke="#5fb3d6" stroke-width="3"/><circle cx="60" cy="40" r="12" fill="none" stroke="#5fb3d6" stroke-width="3"/><circle cx="80" cy="26" r="3" fill="#d8352a"/></svg>
+        <span class="work-year">2022 · one-shot</span><h3>Goodbye, Eri</h3><p>Sekitar 200 halaman, seluruhnya dibingkai seperti rekaman kamera ponsel. Tentang film, kematian, dan sedikit ledakan.</p>
+      </article>
+      <article class="work">
+        <svg viewBox="0 0 120 80" aria-hidden="true"><path d="M30 62h60M34 62V48h52v14M38 48V36h44v12M42 36V24h36v12" stroke="#f3eedf" stroke-width="2.5" fill="none" stroke-linejoin="round"/></svg>
+        <span class="work-year">2021</span><h3>17–21 &amp; 22–26</h3><p>Kumpulan cerita pendek dari masa awal. Bibit-bibit dari semua yang datang kemudian.</p>
+      </article>
+    </div>
+
+    <div class="film reveal">
+      <div class="film-title">
+        <span class="badge">Film · 2024</span>
+        <h3>Look Back, versi layar lebar</h3>
+        <p>Diadaptasi oleh Studio Durian, dengan banyak adegan yang digambar tangan langsung oleh sutradaranya. Garis pensil kasar sengaja dibiarkan terlihat, persis seperti halaman manga yang hidup.</p>
+      </div>
+      <dl class="credits">
+        <div><dt>Sutradara &amp; naskah</dt><dd>Kiyotaka Oshiyama</dd></div>
+        <div><dt>Studio</dt><dd>Studio Durian</dd></div>
+        <div><dt>Musik</dt><dd>haruka nakamura</dd></div>
+        <div><dt>Pengisi suara</dt><dd>Yūmi Kawai · Mizuki Yoshida</dd></div>
+        <div><dt>Durasi</dt><dd>58 menit</dd></div>
+        <div><dt>Rilis Jepang</dt><dd>28 Juni 2024</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- FINALE ================================================= -->
+<section class="finale" id="akhir" aria-labelledby="akhir-title">
+  <div class="finale-art" aria-hidden="true">
+    <img src="assets/room-color.webp" width="764" height="1200" alt="" loading="lazy" decoding="async">
+  </div>
+  <div class="finale-copy">
+    <p class="chapter-label on-dark reveal">終 · Akhir</p>
+    <h2 id="akhir-title" class="reveal">“Kenapa kamu terus menggambar?”</h2>
+    <p class="reveal">Karena seseorang pernah membacanya. Karena masih ada halaman kosong. Karena punggung yang membungkuk di atas meja itu tidak pernah benar-benar sendirian.</p>
+    <button class="btn btn-primary reveal" id="lookBack" type="button">Menoleh ke belakang ↑</button>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <p class="brand"><span class="brand-jp" lang="ja">ルックバック</span><span class="brand-en">Look Back</span></p>
+    <p>Situs penggemar tidak resmi, dibuat dengan cinta untuk karya Tatsuki Fujimoto. Look Back © Tatsuki Fujimoto / Shueisha · Film © Look Back Film Partners. Ilustrasi desa digambar ulang dengan tangan (SVG); gambar karakter resmi dari situs film Look Back dan Shueisha, dipakai sebagai tribut penggemar.</p>
+    <p class="hand">Don't look back — keep drawing.</p>
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
+</body>
+</html>

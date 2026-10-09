@@ -1,0 +1,6 @@
+.claude/
+.vercel/
+.playwright-cli/
+*.log
+.DS_Store
+Thumbs.db
